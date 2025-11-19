@@ -15,37 +15,37 @@ FoamFile
 
 // Note: this file is a Copy of $FOAM_TUTORIALS/resources/blockMesh/pitzDaily
 
-convertToMeters 0.001;
+convertToMeters 0.01; //convierte a cm
 
 vertices
 (
-    (-1 -1 0) //parte de abajo de la pared izquierda
+    (-1 -10 0) //parte de abajo de la pared izquierda
     (-1 0 0) //1
-    (-1 2 0) //2
-    (-1 2 1) //parte de arriba de la pared izquierda
+    (-1 10 0) //2
+    (-1 10 1) //parte de arriba de la pared izquierda
     (-1 0 1) //4
-    (-1 -1 1) //5
-    (1 -1 0) //parte de abajo de la pared derecha
+    (-1 -10 1) //5
+    (1 -10 0) //parte de abajo de la pared derecha
     (1 0 0) //7
-    (1 2 0) //8
-    (1 2 1) //parte de arriba de la pared derecha
+    (1 10 0) //8
+    (1 10 1) //parte de arriba de la pared derecha
     (1 0 1) //10
-    (1 -1 1) //11
+    (1 -10 1) //11
 
-    (0.29289321881345254 0.7071067811865476 0) //pared punto B abajo
-    (0.29289321881345254 0.7071067811865476 1) //13
-    (-0.29289321881345254 0.7071067811865476 0) //pared punto A abajo
-    (-0.29289321881345254 0.7071067811865476 1) //15
+    (0.35147186257614305 0.848528137423857 0) //pared punto B abajo
+    (0.35147186257614305 0.848528137423857 1) //13
+    (-0.3514718625761429 0.8485281374238569 0) //pared punto A abajo
+    (-0.3514718625761429 0.8485281374238569 1) //15
 
-    //checar el 0.5 es epsilon
+    //checar el 0.05 es epsilon
     (1 0.05 0)//16
     (1 0.05 1)
     (-1 0.05 0)
     (-1 0.05 1)//19
-    (0.29289321881345254 0.7571067811865476 0) //B epsilon abajo 20
-    (0.29289321881345254 0.7571067811865475 1) //B epsilon arriba 21
-    (-0.2928932188134524 0.7571067811865475 0) //A epsilon abajo 22
-    (-0.2928932188134524 0.7571067811865475 1) //A epsilon abajo 23
+    (0.35147186257614305 0.9085281374238571 0) //B epsilon abajo 20
+    (0.35147186257614305 0.9085281374238571 1) //B epsilon arriba 21
+    (-0.3514718625761429 0.908528137423857 0) //A epsilon abajo 22
+    (-0.3514718625761429 0.908528137423857 1) //A epsilon abajo 23
 );
 
 blocks
