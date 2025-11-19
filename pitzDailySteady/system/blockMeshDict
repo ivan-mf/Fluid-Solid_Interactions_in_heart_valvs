@@ -1,0 +1,97 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  13
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+// Note: this file is a Copy of $FOAM_TUTORIALS/resources/blockMesh/pitzDaily
+
+convertToMeters 0.001;
+
+vertices
+(
+    (-1 -1 0) //parte de abajo de la pared izquierda
+    (-1 0 0) //1
+    (-1 2 0) //2
+    (-1 2 1) //parte de arriba de la pared izquierda
+    (-1 0 1) //4
+    (-1 -1 1) //5
+    (1 -1 0) //parte de abajo de la pared derecha
+    (1 0 0) //7
+    (1 2 0) //8
+    (1 2 1) //parte de arriba de la pared derecha
+    (1 0 1) //10
+    (1 -1 1) //11
+
+    (0.29289321881345254 0.7071067811865476 0) //pared punto B abajo
+    (0.29289321881345254 0.7071067811865476 1) //13
+    (-0.29289321881345254 0.7071067811865476 0) //pared punto A abajo
+    (-0.29289321881345254 0.7071067811865476 1) //15
+
+    //checar el 0.5 es epsilon
+    (1 0.05 0)//16
+    (1 0.05 1)
+    (-1 0.05 0)
+    (-1 0.05 1)//19
+    (0.29289321881345254 0.7571067811865476 0) //B epsilon abajo 20
+    (0.29289321881345254 0.7571067811865475 1) //B epsilon arriba 21
+    (-0.2928932188134524 0.7571067811865475 0) //A epsilon abajo 22
+    (-0.2928932188134524 0.7571067811865475 1) //A epsilon abajo 23
+);
+
+blocks
+(
+    hex (0 2 3 5 6 8 9 11)
+    (10 10 10)               // numbers of cells in each direction
+    simpleGrading (1 2 3)    // cell expansion ratios
+
+    hex (7 16 20 12 13 10 17 21)//celda B
+    (10 10 10)               // numbers of cells in each direction
+    simpleGrading (1 2 3)
+
+    hex (1 14 22 18 19 4 15 23)//celda A
+    (10 10 10)               // numbers of cells in each direction
+    simpleGrading (1 2 3)
+);
+
+boundary               // keyword
+(
+        inlet              // patch name
+        {
+            type patch;    // patch type for patch 0
+            faces
+            (
+                (0 5 11 6)  // block face in this patch
+            );
+        }                  // end of 0th patch definition
+
+        outlet             // patch name
+        {
+            type patch;    // patch type for patch 1
+            faces
+            (
+                (2 8 9 3)
+            );
+        }
+
+        walls
+        {
+            type wall;
+            faces
+            (
+                (0 2 3 5) //paredes del cubo 
+                (6 8 9 11)
+                (2 8 6 0)
+                (11 9 3 5) 
+            );
+        }
+);
