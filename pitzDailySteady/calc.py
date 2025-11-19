@@ -2,6 +2,7 @@ import math
 angle = float(input("angulo: "))
 epsilon = float(input("epsilon: "))
 L = float(input("longitud: "))
+vel = float(input("velocidad: "))
 
 phi = math.radians(270 - angle)
 phip = math.radians(angle -90)
@@ -16,3 +17,4 @@ print("A: "+str(A))
 print("B epsilon: "+str(Be))
 print("A espilon: "+str(Ae))
 
+pritn("el numero de reynolds es: "+str(1*vel*1/1))
