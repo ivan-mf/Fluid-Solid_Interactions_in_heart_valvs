@@ -22,7 +22,7 @@ boundaryField
     inlet
     {
         type            fixedValue;
-        value           uniform (10 0 0);
+        value           uniform (1 0 0); //cambiar a 0 para no ponerle presion
     }
 
     outlet
